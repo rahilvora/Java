@@ -89,7 +89,7 @@ public class Matrixs {
 	}
 	public void multiplication(int r1,int r2,int c1, int c2)
 	{
-		
+		System.out.println("sine textsdf");
 	}
 	
 }
