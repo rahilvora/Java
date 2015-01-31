@@ -89,7 +89,57 @@ public class Matrixs {
 	}
 	public void multiplication(int r1,int r2,int c1, int c2)
 	{
-		System.out.println("sine textsdf");
+		if(c1==r2)
+		{
+
+			Scanner input=new Scanner(System.in);
+			int[][] matrixResult=new int[r1][c1];
+			int[][] matrix1=new int[r1][c1];
+			int[][] matrix2=new int[r2][c2];
+			
+			System.out.println("Enter data for matrix1");
+			for(int i=0;i<r1;i++)
+			{
+				for(int j=0;j<c1;j++)
+				{
+					matrix1[i][j]=input.nextInt();
+				}
+			}
+			
+			System.out.println("Enter data for matrix2");
+			for(int i=0;i<r1;i++)
+			{
+				for(int j=0;j<c1;j++)
+				{
+					matrix2[i][j]=input.nextInt();
+				}
+			}
+			int sum=0;
+			for(int i=0;i<r1;i++)
+			{
+				for(int j=0;j<c2;j++)
+				{
+					for(int k=0;k<r2;k++)
+					{
+						sum+=matrix1[i][k]*matrix2[k][j];
+					}
+					matrixResult[i][j]=sum;
+					sum=0;
+				}
+			}
+			for(int i=0;i<r1;i++)
+			{
+				for(int j=0;j<c2;j++)
+				{
+					System.out.print(matrixResult[i][j]+"\t");
+				}
+				System.out.println();
+			}
+		}
+		else
+		{
+			System.out.println("Multiplication not possible for these matrix");
+		}
 	}
 	
 }
