@@ -1,13 +1,12 @@
 import java.util.*;
 public class Stacks {
 	int[] wallet;
-	int pointer=0;
+	int pointer=-1;
 	Stacks(int size)
 	{
 		wallet= new int[size];
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner in=new Scanner(System.in);
 		System.out.println("Enter the size of a stack");
 		Stacks object=new Stacks(in.nextInt());
@@ -37,13 +36,13 @@ public class Stacks {
 	
 	public void push()
 	{	
-		if(pointer<wallet.length)
+		if(pointer<wallet.length-1)
 		{
 		Scanner in=new Scanner(System.in);
 		System.out.println("Enter the number to be pushed");
 		int value=in.nextInt();
-		wallet[pointer]=value;
 		pointer++;
+		wallet[pointer]=value;
 		System.out.println(value+" pushed into the stack");
 		}
 		else
@@ -57,13 +56,21 @@ public class Stacks {
 		}
 		else
 		{
-			System.out.println(wallet[pointer-1]+ "is poped out of the stack");
+			
+			System.out.println(wallet[pointer]+ "is poped out of the stack");
 			pointer--;
 		}
 	}
 	public void display()
-	{
+	{	
+		if(pointer<0)
+		{
+			System.out.println("Stack is empty");
+		}
+		else
+		{
 		for(int i=0; i<pointer;i++)
 		System.out.println(wallet[i]);
+		}
 	}
 }
