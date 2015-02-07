@@ -76,7 +76,7 @@ public class Stacks {
 	}
 	public void min()
 	{
-		int tempvar=0,a=0,b=0;
+		int a=0,b=0;
 		for(int i=0;i<=pointer;i++)
 		{
 			if(i+1<=pointer)
@@ -85,10 +85,9 @@ public class Stacks {
 				{	
 					a=wallet[i];
 					b=wallet[i+1];
-					tempvar=a;
-					a=b;
-					b=tempvar;
-				
+					a=a^b;
+					b=a^b;
+					a=a^b;	
 				}
 			}
 		}
