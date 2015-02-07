@@ -14,7 +14,7 @@ public class Stacks {
 		boolean flag=true;
 		while(flag)
 		{
-		System.out.println("Please select the Stack operation you want to perform:\n1.Push\n2.Pop\n3.Display Stack\n4. Exit Menu");
+		System.out.println("Please select the Stack operation you want to perform:\n1.Push\n2.Pop\n3.Display Stack\n4.Min Value\n5. Exit Menu");
 		int operation=in.nextInt();
 		switch(operation)
 		{
@@ -25,8 +25,9 @@ public class Stacks {
 			break;
 		case 3:object.display();
 			break;
-		case 4:
-			flag=false;
+		case 4:object.min();
+			break;
+		case 5:flag=false;
 			break;
 		default:
 			System.out.println("Invalid Input folks");
@@ -72,5 +73,25 @@ public class Stacks {
 		for(int i=0; i<pointer;i++)
 		System.out.println(wallet[i]);
 		}
+	}
+	public void min()
+	{
+		int tempvar=0,a=0,b=0;
+		for(int i=0;i<=pointer;i++)
+		{
+			if(i+1<=pointer)
+			{
+				if( wallet[i]>wallet[i+1])
+				{	
+					a=wallet[i];
+					b=wallet[i+1];
+					tempvar=a;
+					a=b;
+					b=tempvar;
+				
+				}
+			}
+		}
+		System.out.println("Minimum value is "+a);
 	}
 }

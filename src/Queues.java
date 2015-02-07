@@ -15,7 +15,7 @@ public class Queues {
 		boolean flag=true;
 		while(flag)
 		{
-		System.out.println("Please select the Stack operation you want to perform:\n1.Push\n2.Pop\n3.Display Stack\n4. Exit Menu");
+		System.out.println("Please select the Queue operation you want to perform:\n1.Push\n2.Pop\n3.Display Stack\n4. Exit Menu");
 		int operation=in.nextInt();
 		switch(operation)
 		{
