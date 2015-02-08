@@ -1,10 +1,12 @@
 import java.util.*;
 public class Stacks {
 	int[] wallet;
+	int[] replica;
 	int pointer=-1;
 	Stacks(int size)
 	{
 		wallet= new int[size];
+		replica=new int[size];
 	}
 	public static void main(String[] args) {
 		Scanner in=new Scanner(System.in);
@@ -44,7 +46,17 @@ public class Stacks {
 		int value=in.nextInt();
 		pointer++;
 		wallet[pointer]=value;
+		replica[pointer]=value;
 		System.out.println(value+" pushed into the stack");
+		if(pointer-1>=0)
+		{
+			if(replica[pointer]>replica[pointer-1])
+			{
+				replica[pointer]=replica[pointer]^replica[pointer-1];
+				replica[pointer-1]=replica[pointer]^replica[pointer-1];
+				replica[pointer]=replica[pointer]^replica[pointer-1];
+			}
+		}
 		}
 		else
 			System.out.println("Stack is full no more push operation can be performed");
@@ -70,13 +82,23 @@ public class Stacks {
 		}
 		else
 		{
-		for(int i=0; i<pointer;i++)
+		for(int i=0; i<=pointer;i++)
 		System.out.println(wallet[i]);
 		}
 	}
 	public void min()
 	{
-		int a=0,b=0;
+		if(pointer<0)
+		{
+			System.out.println("Pop operation cannot be performed as stack is empty!!");
+		}
+		else
+		{
+			
+			System.out.println(replica[pointer]+ " is minimum");
+			
+		}
+		/*int a=0,b=0;
 		for(int i=0;i<=pointer;i++)
 		{
 			if(i+1<=pointer)
@@ -91,6 +113,6 @@ public class Stacks {
 				}
 			}
 		}
-		System.out.println("Minimum value is "+a);
+		System.out.println("Minimum value is "+a);*/
 	}
 }
