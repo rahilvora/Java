@@ -13,35 +13,61 @@ public class SinglyLinkedList {
     	  while(flag)
     	  {
 
-    		  System.out.println("Enter the operation you want to perform\n1.Enter a node\n2.Delete a node\n3.Display all the elements");
+    		  System.out.println("Enter the operation you want to perform\n1.Enter a node at the start\n2.Enter a node at the end"
+    		  		+ "\n3.Delete a node from the start\n4.Delete a node from the end\n5.Display all the elements\n6.Exit");
         	  
     	  switch(in.nextInt())
     	  {
     	  case 1:
     		  object.addAtStart();
     		  break;
-    		
+    	
     	  case 2:
+    		  object.addAtEnd();
+    		  break;
+    	  case 3:
     		  object.deleteFromStart();
     		  break;
-    	  
-    	  case 3:
+    	  case 4:
+    		  object.deleteFromEnd();
+    		  break;
+    	  case 5:
     		  object.display();
     		  break;
-    	  case 4:
+    	  case 6:
     	  		flag=false;
     	  		break;
     		  
     	  }
     	  }
-    	  in.close();
+    	 
       }
       public void addAtStart()
       {
     	  Scanner in=new Scanner(System.in);
     	  System.out.println("Enter the data");
     	  head=new LinkList(in.nextInt(),head);
-    	  in.close();
+    	 
+      }
+      public void addAtEnd()
+      {
+    	  Scanner in=new Scanner(System.in);
+    	  System.out.println("Enter the data");
+    	  if(head==null)
+    	  {
+    		  head=new LinkList(in.nextInt(),head);
+    	  }
+    	  else
+    	  {
+    		  LinkList tmp = head;
+              while(tmp.nextNode != null)
+                 tmp = tmp.nextNode;
+              LinkList node = new LinkList();
+              node.setData(in.nextInt());
+              tmp.nextNode = node;	//run it
+    		 
+    	  }
+    	  
       }
       public void deleteFromStart()
       {
@@ -53,8 +79,28 @@ public class SinglyLinkedList {
     	  else
     	  {
     		 System.out.println(head.Data+" Deleted");
+    		 head=head.nextNode;
     	  }
-    	  head=head.nextNode;
+    	 
+      }
+      public void deleteFromEnd()
+      {
+    	  Scanner in=new Scanner(System.in);
+    	  if(head==null)
+    	  {
+    		  System.out.println("Empty Linked List");
+    	  }
+    	  else
+    	  {
+
+    		  LinkList tmp = head;
+              while(tmp.nextNode.nextNode!= null)
+                 tmp = tmp.nextNode;
+              System.out.println(tmp.nextNode.Data+" Deleted");
+              tmp.nextNode=null;
+    		  
+    	  }
+    	  
       }
       public void display()
       {
@@ -80,10 +126,12 @@ class LinkList{
 		Data=0;
 		nextNode=null;
 	}
-public LinkList(int item, LinkList link)
+public LinkList(int item, LinkList link )
 {
 	setData(item);
 	nextNode=link;
+	
+	
 }
 public void setData(int item)
 {
