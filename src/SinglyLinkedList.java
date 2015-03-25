@@ -94,10 +94,20 @@ public class SinglyLinkedList {
     	  {
 
     		  LinkList tmp = head;
-              while(tmp.nextNode.nextNode!= null)
-                 tmp = tmp.nextNode;
-              System.out.println(tmp.nextNode.Data+" Deleted");
-              tmp.nextNode=null;
+    		  if(tmp.nextNode != null){
+    			  while(tmp.nextNode.nextNode!= null)
+    				  tmp = tmp.nextNode;
+    			  System.out.println(tmp.nextNode.Data+" Deleted");
+                  
+                  tmp.nextNode=null;
+    		  }else{
+    			  //delete temp
+    			  System.out.println(tmp.Data + " Deleted!");
+    			  tmp = null;
+    			  head = null;
+    			  
+    		  }
+             
     		  
     	  }
     	  
@@ -110,10 +120,11 @@ public class SinglyLinkedList {
     	  }
     	  else
     	  {
-    	  while(head!=null)
+    		  LinkList tmp=head;
+    	  while(tmp!=null)
     	  {
-    		 System.out.println(head.Data+" "+head.nextNode);
-    		 head=head.nextNode;
+    		 System.out.println(tmp.Data+" "+tmp.nextNode);
+    		 tmp=tmp.nextNode;
     	  }
     	  }
       }
@@ -130,8 +141,6 @@ public LinkList(int item, LinkList link )
 {
 	setData(item);
 	nextNode=link;
-	
-	
 }
 public void setData(int item)
 {
