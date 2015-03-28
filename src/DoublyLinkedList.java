@@ -43,7 +43,7 @@ public class DoublyLinkedList<Type> {
 				object.deleteFromEnd(choice);
 				break;
 			case 5:
-				object.display();
+				object.display(choice);
 				break;
 			case 6:
 				flag = false;
@@ -55,45 +55,76 @@ public class DoublyLinkedList<Type> {
 	}
 
 	public void addAtStart(int choice) {
-		Scanner in=new Scanner(System.in);
-		switch(choice){
-		case 1:{
-			System.out.println("Please enter the integer value to added");
-			DLinkedList temp=headI;
-			headI=new DLinkedList(in.nextInt(),headI,null);
-			if(temp!=null)
-			temp.nodePrevious = headI;
-			
-			
-		}
-		break;
-		case 2:{
-			System.out.println("Please enter the Float value to added");
-			headF=new DLinkedList(in.nextInt(),headF,null);
-		}
-		break;
-		
-		case 3:{
-			System.out.println("Please enter the String value to added");
-			headS=new DLinkedList(in.nextInt(),headS,null);
-		}
-		break;
-		}
-	}
-
-	public void addAtEnd(int choice) {
+		Scanner in = new Scanner(System.in);
 		switch (choice) {
 		case 1: {
-			System.out.println("Please enter the integer value to added");
+			System.out.println("Please enter the integer value to be added");
+			DLinkedList temp = headI;
+			headI = new DLinkedList(in.nextInt(), headI, null);
+			if (temp != null)
+				temp.nodePrevious = headI;
+
 		}
 			break;
 		case 2: {
 			System.out.println("Please enter the Float value to added");
+			DLinkedList temp = headF;
+			headF = new DLinkedList(in.nextFloat(), headF, null);
+			if (temp != null)
+				temp.nodePrevious = headF;
 		}
 			break;
 
 		case 3: {
 			System.out.println("Please enter the String value to added");
+			DLinkedList temp = headS;
+			headS = new DLinkedList(in.next(), headS, null);
+			if (temp != null)
+				temp.nodePrevious = headS;
+		}
+			break;
+		}
+	}
+
+	public void addAtEnd(int choice) {
+		Scanner in = new Scanner(System.in);
+		switch (choice) {
+		case 1: {
+			System.out.println("Please enter the integer value to added");
+			if (headI == null) {
+				headI = new DLinkedList(in.nextInt(), headI, null);
+			} else {
+				DLinkedList temp = headI;
+				while (temp.nodeNext != null)
+					temp = temp.nodeNext;
+				temp.nodeNext = new DLinkedList(in.nextInt(), null, temp);
+			}
+
+		}
+			break;
+		case 2: {
+			System.out.println("Please enter the Float value to added");
+			if (headF == null) {
+				headF = new DLinkedList(in.nextFloat(), headF, null);
+			} else {
+				DLinkedList temp = headF;
+				while (temp.nodeNext != null)
+					temp = temp.nodeNext;
+				temp.nodeNext = new DLinkedList(in.nextFloat(), null, temp);
+			}
+		}
+			break;
+
+		case 3: {
+			System.out.println("Please enter the String value to added");
+			if (headS == null) {
+				headS = new DLinkedList(in.next(), headS, null);
+			} else {
+				DLinkedList temp = headS;
+				while (temp.nodeNext != null)
+					temp = temp.nodeNext;
+				temp.nodeNext = new DLinkedList(in.next(), null, temp);
+			}
 		}
 			break;
 		}
@@ -138,20 +169,51 @@ public class DoublyLinkedList<Type> {
 
 	}
 
-	public void display() {
-		if(headI==null)
-  	  {
-  		  System.out.println("Empty Linked List");
-  	  }
-  	  else
-  	  {
-  		DLinkedList tmp=headI;
-  	  while(tmp!=null)
-  	  {
-  		 System.out.println(tmp.Data+" "+tmp.nodeNext+" " +tmp.nodePrevious);
-  		 tmp=tmp.nodeNext;
-  	  }
-  	  }
+	public void display(int choice) {
+		switch (choice) {
+
+		case 1: {
+			if (headI == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				DLinkedList tmp = headI;
+				while (tmp != null) {
+					System.out.println(tmp.nodePrevious + " " + tmp.Data + " "
+							+ tmp.nodeNext);
+					tmp = tmp.nodeNext;
+				}
+			}
+
+		}
+			break;
+		case 2: {
+			if (headF == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				DLinkedList tmp = headF;
+				while (tmp != null) {
+					System.out.println(tmp.nodePrevious + " " + tmp.Data + " "
+							+ tmp.nodeNext);
+					tmp = tmp.nodeNext;
+				}
+			}
+		}
+			break;
+		case 3: {
+			if (headS == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				DLinkedList tmp = headS;
+				while (tmp != null) {
+					System.out.println(tmp.nodePrevious + " " + tmp.Data + " "
+							+ tmp.nodeNext);
+					tmp = tmp.nodeNext;
+				}
+			}
+
+		}
+			break;
+		}
 
 	}
 
