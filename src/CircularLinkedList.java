@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 public class CircularLinkedList {
 	LinkList head;
-
 	CircularLinkedList() {
 		head = null;
 	}
-
 	public static void main(String[] args) {
 		boolean flag = true;
 		Scanner in = new Scanner(System.in);
@@ -37,7 +35,6 @@ public class CircularLinkedList {
 		}
 
 	}
-
 	public void add(int element) {
 		if (head == null) {
 			head = new LinkList(element, head);
