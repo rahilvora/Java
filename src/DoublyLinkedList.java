@@ -21,7 +21,6 @@ public class DoublyLinkedList<Type> {
 		DoublyLinkedList object = new DoublyLinkedList();
 		boolean flag = true;
 
-		// SinglyLinkedList object=new SinglyLinkedList();
 		while (flag) {
 
 			System.out
@@ -67,7 +66,7 @@ public class DoublyLinkedList<Type> {
 		}
 			break;
 		case 2: {
-			System.out.println("Please enter the Float value to added");
+			System.out.println("Please enter the Float value to be added");
 			DLinkedList temp = headF;
 			headF = new DLinkedList(in.nextFloat(), headF, null);
 			if (temp != null)
@@ -76,7 +75,7 @@ public class DoublyLinkedList<Type> {
 			break;
 
 		case 3: {
-			System.out.println("Please enter the String value to added");
+			System.out.println("Please enter the String value to be added");
 			DLinkedList temp = headS;
 			headS = new DLinkedList(in.next(), headS, null);
 			if (temp != null)
@@ -90,7 +89,7 @@ public class DoublyLinkedList<Type> {
 		Scanner in = new Scanner(System.in);
 		switch (choice) {
 		case 1: {
-			System.out.println("Please enter the integer value to added");
+			System.out.println("Please enter the integer value to be added");
 			if (headI == null) {
 				headI = new DLinkedList(in.nextInt(), headI, null);
 			} else {
@@ -103,7 +102,7 @@ public class DoublyLinkedList<Type> {
 		}
 			break;
 		case 2: {
-			System.out.println("Please enter the Float value to added");
+			System.out.println("Please enter the Float value to be added");
 			if (headF == null) {
 				headF = new DLinkedList(in.nextFloat(), headF, null);
 			} else {
@@ -116,7 +115,7 @@ public class DoublyLinkedList<Type> {
 			break;
 
 		case 3: {
-			System.out.println("Please enter the String value to added");
+			System.out.println("Please enter the String value to be added");
 			if (headS == null) {
 				headS = new DLinkedList(in.next(), headS, null);
 			} else {
@@ -134,16 +133,59 @@ public class DoublyLinkedList<Type> {
 	public void deleteFromStart(int choice) {
 		switch (choice) {
 		case 1: {
-			System.out.println("Please enter the integer value to be deleted");
+			if (headI == null) {
+				System.out.println("Empty Linked List");
+			}
+
+			else {
+				if(headI.nodeNext!=null){
+				System.out.println(headI.Data + " Deleted");
+				headI = headI.nodeNext;
+				headI.nodePrevious = null;
+				}
+				else{
+					System.out.println(headI.Data + " Deleted");
+					headI=null;
+				}
+			}
+
 		}
 			break;
 		case 2: {
-			System.out.println("Please enter the Float value to be deleted");
+			if (headF == null) {
+				System.out.println("Empty Linked List");
+			}
+
+			else {
+				if(headF.nodeNext!=null){
+				System.out.println(headF.Data + " Deleted");
+				headF = headF.nodeNext;
+				headF.nodePrevious = null;
+				}
+				else{
+					System.out.println(headF.Data + " Deleted");
+					headF=null;
+				}
+			}
 		}
 			break;
 
 		case 3: {
-			System.out.println("Please enter the String value to be deleted");
+			if (headS == null) {
+				System.out.println("Empty Linked List");
+			}
+
+			else {
+				if(headS.nodeNext!=null){
+				System.out.println(headS.Data + " Deleted");
+				headS = headS.nodeNext;
+				headS.nodePrevious = null;
+				}
+				else{
+					System.out.println(headS.Data + " Deleted");
+					headS=null;
+				}
+			}
 		}
 			break;
 		}
@@ -153,16 +195,62 @@ public class DoublyLinkedList<Type> {
 	public void deleteFromEnd(int choice) {
 		switch (choice) {
 		case 1: {
-			System.out.println("Please enter the integer value to be deleted");
+			if (headI == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				
+				DLinkedList temp = headI;
+				if(temp.nodeNext!=null){
+				while (temp.nodeNext.nodeNext != null)
+					temp = temp.nodeNext;
+				System.out.println(temp.nodeNext.Data + " Deleted");
+				temp.nodeNext = null;
+				}
+				else{
+					System.out.println(headI.Data+" Deleted");
+					headI=null;
+				}
+			}
+
 		}
 			break;
 		case 2: {
-			System.out.println("Please enter the Float value to be deleted");
+			if (headF == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				DLinkedList temp = headF;
+				if(temp.nodeNext!=null){
+				while (temp.nodeNext.nodeNext != null)
+					temp = temp.nodeNext;
+				System.out.println(temp.nodeNext.Data + " Deleted");
+				temp.nodeNext = null;
+				}
+				else{
+					System.out.println(headF.Data+" Deleted");
+					headF=null;
+				}
+			}
+
 		}
 			break;
 
 		case 3: {
-			System.out.println("Please enter the String value to be deleted2");
+			if (headS == null) {
+				System.out.println("Empty Linked List");
+			} else {
+				DLinkedList temp = headS;
+				if(temp.nodeNext!=null){
+				while (temp.nodeNext.nodeNext != null)
+					temp = temp.nodeNext;
+				System.out.println(temp.nodeNext.Data + " Deleted");
+				temp.nodeNext = null;
+				}
+				else{
+					System.out.println(headS.Data+" Deleted");
+					headS=null;
+				}
+			}
+
 		}
 			break;
 		}

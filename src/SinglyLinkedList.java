@@ -101,7 +101,7 @@ public class SinglyLinkedList {
                   
                   tmp.nextNode=null;
     		  }else{
-    			  //delete temp
+    			  
     			  System.out.println(tmp.Data + " Deleted!");
     			  tmp = null;
     			  head = null;
